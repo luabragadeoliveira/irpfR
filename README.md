@@ -8,6 +8,7 @@
 ![alt
 text](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)
 ![alt text](https://www.r-pkg.org/badges/version/irpfR)
+[![R-CMD-check](https://github.com/luabragadeoliveira/irpfR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/luabragadeoliveira/irpfR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `irpfR` is to provide a seamless interface for accessing,
@@ -101,9 +102,7 @@ data into a tidy format:
 
 ``` r
 # This will download and clean the "Assets and Rights" dataset
-df_bens <- get_irpf("bens_e_direitos")
-
-head(df_bens)
+get_irpf("bens_e_direitos")
 ```
 
 # Data Scale Note

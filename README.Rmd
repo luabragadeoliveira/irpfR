@@ -67,9 +67,7 @@ Download the complete historical series for a section. The function handles the 
 
 ```{r, example_get, eval=FALSE}
 # This will download and clean the "Assets and Rights" dataset
-df_bens <- get_irpf("bens_e_direitos")
-
-head(df_bens)
+get_irpf("bens_e_direitos")
 ```
 
 # Data Scale Note
