@@ -1,0 +1,62 @@
+---
+title: "Introduction to irpfR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to irpfR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The ```irpfR``` package provides a high-level interface to access and clean the Personal Income Tax (IRPF) Open Data from the Brazilian Federal Revenue (Receita Federal do Brasil).
+This vignette demonstrates the typical workflow: discovering available datasets, understanding their attributes through built-in metadata, and downloading cleaned data for analysis.
+
+## 1. Discovering Available Data
+
+The Brazilian Federal Revenue publishes data in several "sections" (e.g., assets, debts, income brackets). You can list all sections currently supported by the package using ```get_sections()```:
+
+```{r}
+library(irpfR)
+
+# List available datasets
+sections <- get_sections()
+head(sections)
+```
+
+## 2. Inspecting Metadata
+
+Government CSV files often have cryptic column names or complex tax definitions. To understand the content of a section before downloading it, use get_metadata():
+
+```{r}
+# Get descriptions for the "Assets and Rights" (Bens e Direitos) section
+metadata <- get_metadata("bens_e_direitos")
+head(metadata)
+```
+
+## 3. Downloading and Cleaning Data
+
+The core function of the package is get_irpf(). It performs several automated engineering tasks:
+
+* **Download**: Connects to the RFB servers and handles the file transfer.
+* **Encoding**: Corrects UTF-8/Latin1 issues common in Brazilian government files.
+* **Tidying**: Converts "wide" tables into a "long" (tidy) format, making them ready for ggplot2 or dplyr.
+* **Smart Scaling**: Financial values are converted from millions to absolute BRL, while counts (like number of taxpayers) remain as raw integers.
+
+```{r}
+# Download data for "Assets and Rights"
+df_bens <- get_irpf("bens_e_direitos")
+
+# The resulting data is tidy
+# Columns: ano_calendario, atributo, valor
+head(df_bens)
+```
+
+## Why use irpfR?
+Directly reading raw files from the government portal can be challenging due to inconsistent decimal marks (using commas), non-standard NA characters (like ```-``` or ```*```), and varying numerical scales.```irpfR``` encapsulates all these rules, allowing researchers to focus on the economic analysis rather than data cleaning.
+

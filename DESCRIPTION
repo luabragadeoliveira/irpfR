@@ -19,6 +19,8 @@ Imports:
     tidyselect,
     tibble
 Suggests: 
+    knitr,
+    rmarkdown,
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
@@ -27,3 +29,4 @@ Depends:
 Language: en-US
 URL: https://github.com/luabragadeoliveira/irpfR
 BugReports: https://github.com/luabragadeoliveira/irpfR/issues
+VignetteBuilder: knitr
