@@ -1,0 +1,81 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# irpfR <img src='man/figures/logo.png' align="right" height="139" />
+
+<!-- badges: start -->
+![alt text](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)
+![alt text](https://www.r-pkg.org/badges/version/irpfR)
+<!-- badges: end -->
+
+The goal of ```irpfR``` is to provide a seamless interface for accessing, cleaning, and understanding the Personal Income Tax (IRPF) Open Data provided by the Brazilian Federal Revenue (Receita Federal do Brasil - RFB).
+Directly downloading data from the government portal often involves dealing with inconsistently formatted CSV files, complex encoding issues, and tricky numerical scales. ```irpfR``` automates this engineering work, returning "tidy" data frames ready for economic and social analysis.
+
+# Features
+
+* **Data Discovery**: Quickly list all available data sections (assets, debts, income brackets, etc.).
+* **Built-in Dictionary**: Access detailed metadata and attribute descriptions without leaving R.
+* **Automated Cleaning**: Standardized column names, UTF-8 encoding correction, and "tidy" (long) format conversion.
+* **Smart Scaling**: Automatic conversion of financial values (from millions to absolute BRL) while preserving counts (number of taxpayers).
+
+# Installation
+
+You can install the development version of ```irpfR``` from GitHub with:
+
+```{r, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("luabragadeoliveira/irpfR")
+```
+
+# Quick Start
+
+## 1. List Available Sections
+
+Not sure what data is available? Use ```get_sections()``` to see the catalog:
+
+```{r}
+library(irpfR)
+
+get_sections()
+```
+
+## 2. Check Metadata
+
+Before downloading, understand what each column in a specific section means:
+
+```{r}
+# Example for 'Assets and Rights' (Bens e Direitos)
+get_metadata("bens_e_direitos")
+```
+
+## 3. Download and Clean Data
+
+Download the complete historical series for a section. The function handles the connection, downloads a temporary file, and structures the data into a tidy format:
+
+```{r, example_get, eval=FALSE}
+# This will download and clean the "Assets and Rights" dataset
+df_bens <- get_irpf("bens_e_direitos")
+
+head(df_bens)
+```
+
+# Data Scale Note
+
+Please note that financial values in the original RFB files are often scaled (where numbers before the comma represent millions). ```irpfR``` automatically detects financial columns and multiplies them by one million to return absolute values in Reais (BRL), while keeping interger columns.
+
+# License
+
+This package is licensed under the MIT License.
+
