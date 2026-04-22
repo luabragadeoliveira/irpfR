@@ -181,7 +181,7 @@ irpf_metadata_storage[["rendimentos_isentos_e_nao_tributaveis"]] <- tibble::trib
   "rendimentos_de_cadernetas_de_poupanca_lca_lci_cra_cri", "Rendimentos de poupança e letras de crédito.",
   "rendimento_de_socio_ou_titular_de_me_epp_simples_nacional", "Rendimento de sócio de microempresa.",
   "transferencias_patrimoniais_doacoes_e_herancas", "Doações e heranças recebidas.",
-  "imposto_de_reanda_compensado_judicialmente", "IR compensado judicialmente.",
+  "imposto_de_renda_compensado_judicialmente", "IR compensado judicialmente.",
   "x75_dos_rendimentos_do_trabalho_no_exterior_convertidos_em_reais", "Trabalho assalariado no exterior (servidores).",
   "incorporacao_de_reservas_ao_capital_bonificacoes_em_acoes", "Bonificações em ações.",
   "transferencias_patrimoniais_meacao_e_dissolucao_conjugal", "Meação e dissolução conjugal.",

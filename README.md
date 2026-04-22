@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# irpfR <img src='man/figures/logo.png' align="right" height="139" />
+# irpfR ![irpfR logo](man/figures/logo.png)
 
 <!-- badges: start -->
 
@@ -20,7 +20,7 @@ encoding issues, and tricky numerical scales. `irpfR` automates this
 engineering work, returning “tidy” data frames ready for economic and
 social analysis.
 
-# Features
+## Features
 
 - **Data Discovery**: Quickly list all available data sections (assets,
   debts, income brackets, etc.).
@@ -32,7 +32,7 @@ social analysis.
   millions to absolute BRL) while preserving counts (number of
   taxpayers).
 
-# Installation
+## Installation
 
 You can install the development version of `irpfR` from GitHub with:
 
@@ -41,9 +41,9 @@ You can install the development version of `irpfR` from GitHub with:
 devtools::install_github("luabragadeoliveira/irpfR")
 ```
 
-# Quick Start
+## Quick Start
 
-## 1. List Available Sections
+### 1. List Available Sections
 
 Not sure what data is available? Use `get_sections()` to see the
 catalog:
@@ -69,7 +69,7 @@ get_sections()
 #> # ℹ 13 more rows
 ```
 
-## 2. Check Metadata
+### 2. Check Metadata
 
 Before downloading, understand what each column in a specific section
 means:
@@ -94,7 +94,7 @@ get_metadata("bens_e_direitos")
 #> # ℹ 51 more rows
 ```
 
-## 3. Download and Clean Data
+### 3. Download and Clean Data
 
 Download the complete historical series for a section. The function
 handles the connection, downloads a temporary file, and structures the
@@ -105,14 +105,14 @@ data into a tidy format:
 get_irpf("bens_e_direitos")
 ```
 
-# Data Scale Note
+## Data Scale Note
 
 Please note that financial values in the original RFB files are often
 scaled (where numbers before the comma represent millions). `irpfR`
 automatically detects financial columns and multiplies them by one
-million to return absolute values in Reais (BRL), while keeping interger
+million to return absolute values in Reais (BRL), while keeping integer
 columns.
 
-# License
+## License
 
 This package is licensed under the MIT License.
