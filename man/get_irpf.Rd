@@ -18,7 +18,7 @@ downloads the CSV for the requested section, and performs data cleaning
 (standardizing names, pivoting to tidy format, and adjusting currency scales).
 }
 \examples{
-\dontrun{
+\donttest{
  df <- get_irpf("bens_e_direitos")
  head(df)
 }

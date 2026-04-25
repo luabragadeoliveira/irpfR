@@ -1,9 +1,9 @@
 Package: irpfR
-Title: Access to The Great Numbers of Brazilian Individual Income Tax (IRPF)
-Version: 0.1.0
+Title: Access to the Great Numbers of Brazilian Individual Income Tax (IRPF)
+Version: 0.1.1
 Authors@R: 
     person("Luã", "Braga de Oliveira", , "luabragadeoliveira@gmail.com", role = c("aut", "cre"))
-Description: Provides functions to download, clean, and structure open data from the Brazilian Federal Revenue (Receita Federal do Brasil - RFB) regarding Personal Income Tax (IRPF) statements. Includes a data dictionary and categorized metadata for several sections such as assets, rights, debts, and income brackets.
+Description: Provides functions to download, clean, and structure open data from the Brazilian Federal Revenue (Receita Federal do Brasil - RFB) regarding Personal Income Tax (IRPF) statements. Includes a data dictionary and categorized metadata for several sections such as assets, rights, debts, and income brackets. More information about the data source can be found at <https://dados.gov.br/dados/conjuntos-dados/grandes-nmeros-do-imposto-de-renda-da-pessoa-fsica>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

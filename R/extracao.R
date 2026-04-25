@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'  df <- get_irpf("bens_e_direitos")
 #'  head(df)
 #' }
